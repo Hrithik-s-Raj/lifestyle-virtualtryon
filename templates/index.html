@@ -11,12 +11,132 @@
  </script>
 
  <style>
- body {
-     background-image: url("../static/assets/bg1.jpg");
+ /* body {
+     background-image: url("../static/assets/bg.png");
       background-size: cover;
       background-repeat: no-repeat;
      /*background-color: #cccccc;*/
- }
+
+ body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+} 
+
+header {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 1rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 4rem);
+}
+
+main h2 {
+  margin-bottom: 1rem;
+}
+
+main p {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.cta {
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  margin-top: 470px;
+}
+
+.top_header_lifestyle{
+  font-size: 9px;
+  display:flex;
+ 
+}
+
+.left_top_header{
+  margin-left: 300px;
+}
+
+.right_top_header{
+  margin-left:320px
+}
+.life_style_second_header{
+  background: #f7f8f7;
+
+}
+
+.second_header_tags{
+  margin-top:5px;
+  display: flex;
+  gap:18px;
+  justify-content: center;
+  place-items: center;
+}
+
+
+.second_header{
+  display: flex;
+  flex-direction: row;
+  font-size: 10px;
+  margin-left: 200px;
+}
+
+
+.search_box{
+
+  font-size: 12px;
+
+}
+
+.third_header{
+  background:linear-gradient(109.6deg, rgb(255, 194, 48) 11.2%, rgb(255, 124, 0) 100.2%);
+  padding:15px;
+}
+
+.entry_Screen{
+
+  margin-left:550px;
+  margin-top: 120px;
+  /* margin-bottom: 200px; */
+  
+
+}
+
+
 
  </style>
 
@@ -46,74 +166,126 @@
    </script>
     <title>Smart Trial Room</title>
   </head>
-  <body >
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">Smart Trial Room</a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a data-toggle="modal" data-target="#myModal">Predict</a></li>
-          <li>&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-          <li><a href="shirt.html">Shirts</a></li>
-		  <li>&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-          <li><a href="shirt.html">Pants</a></li>
-          
-          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-          <div id="myModal" class="modal fade" role="dialog">
-          <div class="modal-dialog  modal-lg">
+  <body>
 
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
+    <header>
+
+
+   
+
+      <nav>
+
+        <div class="top_header_lifestyle">
+
+          <ul class="left_top_header">
+            <li><a href="#">Free Shipping</a></li>
+            <li><a href="#">Click and Connect</a></li>
+            <li><a href="#">Return To Store</a></li>
+     
+          </ul>
+
+         <ul class="right_top_header">
+          <li><a href="#">Download our Apps  <span>|</span></a></li>
+          <li><a href="#">Store Locator <span>|</span></a></li>
+          <li><a href="#">Help</a></li>
+         </ul> 
+        </div>
+      </nav>
+    </header>
+    <div class="second_header">
+    <img height="50px" src="https://blog.lifestylestores.com/wp-content/uploads/2021/02/Lifestyle-Logo-1160x444-1-800x306.webp"/>
+    <div class="second_header_tags">
+      <h5>Women</h5>
+      <h5>Men</h5>
+      <h5>Kids</h5>
+      <h5>Shoes & Bags</h5>
+      <h5>Beauty</h5>
+<div class="search_box">
+  <input type="search" placeholder="What are you looking for?"/>
+
+
+
+</div>
+<h5>More</h5>
+<h5>|</h5>
+<h5>Sign Up / Sign In</h5>
+
+    </div>
+    </div>
+
+    <div class="third_header">
+
+    </div>
+
+
+    <div class="entry_Screen">
+      <button id="button-a">Virtual Try On</button>
+    <button id="button-b" onclick="window.location.href='http://localhost:8080'">Upload and Try On</button>
+
+    </div>
+    
+
+
+<div id="modal-container" style="display:none;">
+    <main>
+        <h2>Clothing Collection</h2>
+        <p>Explore our latest clothing styles and trends.</p>
+
+        <div class="modal-content model_2">
+            <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Predict</h4>
-              </div>
-              <div class="modal-body">
+            </div>
+            <div class="modal-body">
                 <p>Select a shirt</p>
                 <form class="form-inline" action="http://127.0.0.1:5000/predict" method="post">
-                 <select name="shirt" class="form-control" id="company">
-                                      <option value="0" selected="selected">----------Select one shirt----</option>
-                                      <option value="1">black shirt</option>
-                                      <option value="2">blue shirt</option>
-                                      <option value="3">dupli shirt</option>
-                                      <option value="4">black shirt</option>
+                    <select name="shirt" class="form-control" id="company">
+                        <option value="0" selected="selected">----------Select one shirt----</option>
+                        <option value="1">black shirt</option>
+                        <option value="2">blue shirt</option>
+                        <option value="3">dupli shirt</option>
+                        <option value="4">black shirt</option>
+                    </select>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p>Select a pant</p>
+                    <select name="pant" class="form-control" id="company">
+                        <option value="0" selected="selected">----------Select one pant----</option>
+                        <option value="1">black pant</option>
+                        <option value="2">white pant</option>
+                    </select>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                                    </select>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  				  <p>Select a pant</p>
-
-                                    <select name="pant" class="form-control" id="company">
-                                      <option value="0" selected="selected">----------Select one pant----</option>
-                                      <option value="1">black pant</option>
-                                      <option value="2">white pant</option>
-
-                                    </select>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-          
-                  
-                  
-				
-                
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                
-                 <button type="submit" class="btn btn-default pull-right">Try</button>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="submit" class="btn btn-default pull-right">Try</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 </form>
 
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
             </div>
-
-          </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
         </div>
-        </ul>
-      </div>
-    </nav>
-	
+    </main>
+</div>
+
+<script>
+    document.getElementById("button-a").addEventListener("click", function() {
+        document.getElementById("modal-container").style.display = "block";
+    });
+
+    document.getElementById("button-b").addEventListener("click", function() {
+        document.getElementById("modal-container").style.display = "none";
+    });
+</script>
+
+  
+    <footer>
+      <p>&copy; 2023 Lifestyle Store</p>
+    </footer>
   </body>
+
 </html>
+
+
+
