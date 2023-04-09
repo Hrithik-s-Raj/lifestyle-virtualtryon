@@ -234,7 +234,7 @@
 
   <div class="entry_Screen">
     <button id="button-a" class="intro_button">Virtual Try On</button>
-    <button id="button-b" class="intro_button" onclick="window.location.href='http://34.27.195.140'">Upload and Try
+    <button id="button-b" class="intro_button" onclick="window.location.href='http://34.31.45.30/'">Upload and Try
       On</button>
 
   </div>
@@ -245,7 +245,7 @@
     <main>
       <h2>Clothing Collection</h2>
       <p>Explore our latest clothing styles and trends.</p>
-
+  
       <div class="modal-content model_2">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -254,59 +254,57 @@
         <div class="modal-body">
           <p>Select a shirt</p>
           <form class="form-inline" action="http://127.0.0.1:5000/predict" method="post">
-            <select name="shirt" class="form-control" id="company">
-                <option value="0" selected="selected">----------Select one shirt----</option>
-                <option value="1">Orange Hoodie</option>
-                <option value="2">Blue Shirt</option>
-                <option value="3">Black T-Shirt</option>
-                <option value="4">Green Top</option>
-                <option value="5">White Winter Top</option>
-                <option value="6">Red Top</option>
-                <option value="7">White Blazier</option>
-
-
-
+            <select name="shirt" class="form-control" id="shirt_select">
+              <option value="0" selected="selected">----------Select one shirt----</option>
+              <option value="1" data-image="https://iili.io/HO1zyX4.png">Orange Hoodie</option>
+              <option value="2" data-image="https://iili.io/HO1Id1S.png">Blue Shirt</option>
+              <option value="3" data-image="https://iili.io/HO1I9Ll.jpg">Black T-Shirt</option>
+              <option value="4" data-image="https://iili.io/HO1zDes.png">Green Top</option>
+              <option value="5" data-image="https://iili.io/HO1zbmG.png">White Winter Top</option>
+              <option value="6" data-image="https://iili.io/HO1zpIf.png">White Blazer</option>
             </select>
+            <img id="selected_shirt_image" src="" style="max-width: 100px; max-height: 100px; margin-left: 10px;">
+            <script>
+              var shirtSelect = document.getElementById("shirt_select");
+              var selectedShirtImage = document.getElementById("selected_shirt_image");
+              shirtSelect.addEventListener("change", function() {
+                var selectedOption = shirtSelect.options[shirtSelect.selectedIndex];
+                var imageUrl = selectedOption.getAttribute("data-image");
+                selectedShirtImage.src = imageUrl;
+              });
+            </script>
+                
+            
+            
+            
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <p>Select a pant</p>
-            <select name="pant" class="form-control" id="company">
-                <option value="0" selected="selected">----------Select one pant----</option>
-                <option value="1">No Pant</option>
-                <option value="2">Blue Pant</option>
-
-          
+            <select name="pant" class="form-control" id="pant_select">
+              <option value="0" selected="selected">----------Select one pant----</option>
+              <option value="1" data-image="https://iili.io/HO1unfV.png">Beige Pant</option>
+              <option value="2" data-image="https://iili.io/HO1uT5F.png">Blue Pant</option>
             </select>
+            <img id="selected_pant_image" src="" style="max-width: 100px; max-height: 100px; margin-left: 10px;">
+            <script>
+              var pantSelect = document.getElementById("pant_select");
+              var selectedpantImage = document.getElementById("selected_pant_image");
+              pantSelect.addEventListener("change", function() {
+                var selectedOption = pantSelect.options[pantSelect.selectedIndex];
+                var imageUrl = selectedOption.getAttribute("data-image");
+                selectedpantImage.src = imageUrl;
+              });
+            </script>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        
+  
             <button type="submit" class="btn btn-default pull-right">Try</button>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  
+          </form>
+  
         
-        </form>
+
         
-        <div id="selected_items">
-            <p>Selected shirt: <span id="selected_shirt"></span></p>
-            <p>Selected pant: <span id="selected_pant"></span></p>
-        </div>
-        
-        <script>
-            // Get the select elements
-            const shirtSelect = document.querySelector('select[name="shirt"]');
-            const pantSelect = document.querySelector('select[name="pant"]');
-        
-            // Get the span elements for displaying the selected items
-            const selectedShirt = document.getElementById('selected_shirt');
-            const selectedPant = document.getElementById('selected_pant');
-        
-            // Add event listeners to the select elements to update the selected items
-            shirtSelect.addEventListener('change', function () {
-                selectedShirt.textContent = shirtSelect.options[shirtSelect.selectedIndex].text;
-            });
-        
-            pantSelect.addEventListener('change', function () {
-                selectedPant.textContent = pantSelect.options[pantSelect.selectedIndex].text;
-            });
-        </script>
         
 
         </div>
