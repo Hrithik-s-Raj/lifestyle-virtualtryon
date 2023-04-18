@@ -41,7 +41,7 @@ def predict():
             ret, orig_masks = cv2.threshold(shirtgray,0 , 255, cv2.THRESH_BINARY) #there may be some issues with image threshold...depending on the color/contrast of image
             orig_masks_inv = cv2.bitwise_not(orig_masks)
         origshirtHeight, origshirtWidth = imgshirt.shape[:2]
-        imgarr=["nopant.png",'pant21.png']
+        imgarr=["nopant.jpg",'pant21.png']
         #i=input("Enter the pant number you want to try")
         imgpant = cv2.imread(imgarr[i-1],1)
         imgpant=imgpant[:,:,0:3]#original img in bgr
