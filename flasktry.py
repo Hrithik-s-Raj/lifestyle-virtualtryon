@@ -22,12 +22,14 @@ def predict():
     shirtno = int(request.form["shirt"])
     pantno = int(request.form["pant"])
 
-    cv2.waitKey(1)
+    cv2.waitKey(1000)
     cap=cv2.VideoCapture(0)
     ih=shirtno
     i=pantno
     while True:
-        imgarr=["shirt1.png",'shirt2.png','shirt51.jpg','sh.png','1.png','3.png','shirt12.png']
+
+    
+        imgarr=["shirt1.png",'shirt2.png','shirt51.jpg','sh.png','1.png','3.png','shirt12.png','blueshirt.png']
 
         #ih=input("Enter the shirt number you want to try")
         imgshirt = cv2.imread(imgarr[ih-1],1) #original img in bgr
@@ -248,9 +250,11 @@ def predict():
         #cv2.setMouseCallback('img',change_dress)
         if cv2.waitKey(100) == ord('q'):
             break
+        if cv2.getWindowProperty('img',cv2.WND_PROP_VISIBLE) < 1:
+            break
 
-    cap.release()                           # Destroys the cap object
     cv2.destroyAllWindows()                 # Destroys all the windows created by imshow
+    cap.release();                           # Destroys the cap object
 
     return render_template('index.html')
 if __name__ == '__main__':
